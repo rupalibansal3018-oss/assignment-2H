@@ -1,0 +1,71 @@
+/* Basic Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #1e272e;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Track Container for the Box */
+.loader-container {
+    width: 420px;
+    background-color: #2f3640;
+    padding: 30px;
+    border-radius: 12px;
+    text-align: center;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+}
+
+.loader-container h2 {
+    color: #ffffff;
+    margin-bottom: 25px;
+    font-size: 22px;
+}
+
+.loader-container p {
+    color: #a4b0be;
+    margin-top: 25px;
+    font-size: 14px;
+    letter-spacing: 0.5px;
+}
+
+/* 1. THE BOX ELEMENT */
+.loading-box {
+    width: 50px;
+    height: 50px;
+    background-color: #00d2d3;
+    border-radius: 8px;
+    position: relative; /* Required so 'left' property works for movement */
+    
+    /* APPLYING ANIMATION PROPERTIES */
+    animation-name: moveBoxRight;          /* Matches keyframe name */
+    animation-duration: 2s;                /* Time taken for one complete cycle */
+    animation-timing-function: ease-in-out;/* Smooth start and end */
+    animation-iteration-count: infinite;   /* Loops the animation endlessly */
+    animation-direction: alternate;        /* Moves forward and then back automatically */
+}
+
+/* 2. KEYFRAMES FOR MOVEMENT */
+@keyframes moveBoxRight {
+    0% {
+        left: 0px;                          /* Starting position on the left */
+        background-color: #00d2d3;          /* Initial color (Cyan) */
+        transform: rotate(0deg);            /* No rotation */
+    }
+    50% {
+        background-color: #ff9f43;          /* Mid-way color change (Orange) */
+    }
+    100% {
+        left: 320px;                        /* Ending position on the right */
+        background-color: #ff5252;          /* Final color (Red) */
+        transform: rotate(360deg);          /* Full 360-degree spin while moving */
+    }
+}
